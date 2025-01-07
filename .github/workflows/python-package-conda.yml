@@ -1,6 +1,5 @@
 git init
 git add
-git commit -m "Initial commit: Student anxiety detection project"
 student Anixety prediction
 ├── src/
 │   └── prediction-of-anxiety-detection
