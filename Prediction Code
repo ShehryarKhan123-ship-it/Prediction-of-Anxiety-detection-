@@ -1,0 +1,66 @@
+Program Code:
+import pandas as pd import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split from sklearn.linear_model import LinearRegression from sklearn.metrics import mean_squared_error import seaborn as sns
+
+data=pd.read_csv('anxiety.csv',encoding='latin-1') print(data.head())
+print(data.info()) print(data.isnull().sum())
+
+X2=data[['Timestamp']] y2=data[['anxiety_level']]
+
+X2_train, X2_test, y2_train, y2_test = train_test_split(X2, y2, test_size=0.2, random_state=42) model1=LinearRegression()
+model1.fit(X2_train,y2_train) y1_pred=model1.predict(X2_test)
+# Visualize the results (assuming a single feature for simplicity) plt.scatter(X2_test, y2_test, color='black')
+plt.plot(X2_test, y1_pred, color='blue', linewidth=3) plt.xlabel('Feature')
+plt.ylabel('Anxiety Level')
+plt.title('Linear Regression Model Timstamp and Anxiety-Level') plt.show()
+
+X3=data[['Hours']] y3=data[['anxiety_level']]
+
+X3_train, X3_test, y3_train, y3_test = train_test_split(X3, y3, test_size=0.2, random_state=42) model2=LinearRegression()
+model2.fit(X3_train,y3_train)
+
+y2_pred=model2.predict(X3_test)
+# Visualize the results (assuming a single feature for simplicity) plt.scatter(X3_test, y3_test, color='black')
+plt.plot(X3_test, y2_pred, color='blue', linewidth=3) plt.xlabel('Feature')
+plt.ylabel('Anxiety Level')
+plt.title('Linear Regression Model Hours and Anxiety-Level') plt.show()
+
+
+X1 = data[['Age']]
+y1 = data[['anxiety_level']]
+# Split the data into training and testing sets
+X1_train, X1_test, y1_train, y1_test = train_test_split(X1, y1, test_size=0.2, random_state=42)
+
+# Create and train the linear regression model 1 model = LinearRegression() model.fit(X1_train, y1_train)
+mse = mean_squared_error(y2_test, y1_pred) print("Mean Squared Error:", mse) print(X2_test.shape)
+print(y2_test.shape)
+
+
+# Make predictions on the testing set y_pred = model.predict(X1_test)
+
+# Evaluate the model
+mse = mean_squared_error(y1_test, y_pred) print("Mean Squared Error:", mse) print(X1_test.shape)
+print(y1_test.shape)
+
+
+# Visualize the results (assuming a single feature for simplicity) plt.scatter(X1_test, y1_test, color='black')
+plt.plot(X1_test, y_pred, color='blue', linewidth=3)
+
+plt.xlabel('Feature') plt.ylabel('Anxiety Level')
+plt.title('Linear Regression Model Age and Anxiety-Level') plt.show()
+
+labels = ['SPIN_T', 'GAD_T', 'SWL_T', 'Age', 'Hours'] fig, axes = plt.subplots(1, len(labels), figsize=(20, 5)) for i, col in enumerate(labels):
+sns.distplot(data[col], ax=axes[i]) axes[i].set_title(f"{col} vs count")
+
+plt.tight_layout() plt.show()
+x = data['SWL_T'].mean()
+y = data['GAD_T'].mean()
+z = data['SPIN_T'].mean() c = [x,y,z] plt.figure(figsize = (10,5))
+plt.bar(['Satisfaction with life','General Anxiety Disorder','Social Phobia'],c,color = 'lime',width = 0.5) plt.show()
+label = ['SPIN_T','SWL_T','GAD_T']
+fig, axes = plt.subplots(1,len(label),figsize = (10,7)) for i, col in enumerate(label):
+sns.barplot(x='Degree', y=col, data=data, ax=axes[i]) axes[i].set_xticklabels(axes[i].get_xticklabels(), rotation=90) axes[i].set_ylabel(col)
+axes[i].set_title(f'Degree vs {col}') plt.tight_layout()
+plt.show()
+  output 
