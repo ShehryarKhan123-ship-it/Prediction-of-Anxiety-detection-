@@ -15,11 +15,11 @@ touch src/prediction-of-anxiety-detection/__init__.py
 touch src/your_package/data_preprocessing.py
 touch src/prediction-of-anxiety-detection/model_training.py
 touch src/prediction-of-anxiety-detection/visualization.py
-mv Untitled-1.py src/mv anxiety.py src/your_package/model_training.py/model_training.py
+mv Untitled-1.py src/prediction-of-anxiety-detection/
 mkdir tests/
 conda env create -f environment.yml
 conda activate student_anxiety_env 
-name: student_anxiety_env
+name: 'student_anxiety_env'
 channels:
   - conda-forge
 dependencies:
@@ -40,7 +40,7 @@ import seaborn as sns
 
 
 def preprocess_data(data_path):
- df=pd.read_csv('anxiety.csv',encoding='latin-1') 
+  df=pd.read_csv('data/anxiety.csv', encoding='latin-1')
 
   Args:
       data_path (str): Path to the CSV file containing anxiety data.
@@ -85,7 +85,7 @@ def train_model(data, feature_name):
   y2 = data[['anxiety_level']]
   # Split the data into training and testing sets
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
- X1_train, X1_test, y1_train, y1_test = train_test_split(X1, y1, test_size=0.2, random_state=42)
+  X1_train, X1_test, y1_train, y1_test = train_test_split(X1, y1, test_size=0.2, random_state=42)
   X2_train, X2_test, y2_train, y2_test = train_test_split(X2, y2, test_size=0.2, random_state=42)
   # Create and train the linear regression model
   model = LinearRegression()
@@ -109,15 +109,15 @@ def train_model(data, feature_name):
   print(X_test.shape)
   print(y_test.shape)
 
-    print(X1_test.shape)
+  print(X1_test.shape)
   print(y1_test.shape)
 
   print(X2_test.shape)
   print(y2_test.shape)
 
   return model, mse
-features = ['Timestamp', 'Hours', 'Age']
-for feature in features:
+  features = ['Timestamp', 'Hours', 'Age']
+  for feature in features:
   model, mse = train_model(data.copy(), feature)
   # Visualize the results (assuming a single feature for simplicity)
   plt.scatter(X_test, y_test, color='black')
