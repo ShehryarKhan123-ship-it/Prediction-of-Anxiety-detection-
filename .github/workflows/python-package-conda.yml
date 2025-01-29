@@ -17,18 +17,7 @@ touch src/prediction-of-anxiety-detection/model_training.py
 touch src/prediction-of-anxiety-detection/visualization.py
 mv Untitled-1.py src/prediction-of-anxiety-detection/
 mkdir tests/
-conda env create -f environment.yml
-conda activate student_anxiety_env 
-name: 'student_anxiety_env'
-channels:
-  - conda-forge
-dependencies:
-  - python=3.10
-  - pandas
-  - numpy
-  - matplotlib
-  - scikit-learn
-  - seaborn
+
 data_preprocessing.py
 import pandas as pd
 import numpy as np
@@ -56,6 +45,7 @@ def preprocess_data(data_path):
   data = data.fillna(data.mean()) 
   return data
 data = preprocess_data('anxiety.csv')
+
 model_training.py
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
@@ -93,11 +83,11 @@ def train_model(data, feature_name):
   
   # second model 
   model1 = LinearRegression()
-  model.fit(X1_train, y1_train)
+  model1.fit(X1_train, y1_train)
   
   # third model 
-  mode2 = LinearRegression()
-  model.fit(X2_train, y2_train)
+  model2 = LinearRegression()
+  model2.fit(X2_train, y2_train)
   
   # Make predictions on the testing set
   y_pred = model.predict(X_test)
@@ -118,14 +108,14 @@ def train_model(data, feature_name):
   return model, mse
   features = ['Timestamp', 'Hours', 'Age']
   for feature in features:
-  model, mse = train_model(data.copy(), feature)
-  # Visualize the results (assuming a single feature for simplicity)
-  plt.scatter(X_test, y_test, color='black')
-  plt.plot(X_test, y_pred, color='blue', linewidth=3)
-  plt.xlabel('Feature')
-  plt.ylabel('Anxiety Level')
-  plt.title(f'Linear Regression Model {feature} and Anxiety-Level')
-  plt.show()
+      model, mse = train_model(data.copy(), feature)
+      # Visualize the results (assuming a single feature for simplicity)
+      plt.scatter(X_test, y_test, color='black')
+      plt.plot(X_test, y_pred, color='blue', linewidth=3)
+      plt.xlabel('Feature')
+      plt.ylabel('Anxiety Level')
+      plt.title(f'Linear Regression Model {feature} and Anxiety-Level')
+      plt.show()
 
 
 
