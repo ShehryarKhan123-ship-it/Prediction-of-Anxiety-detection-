@@ -1,44 +1,72 @@
-Student Anxiety Detection Project
+# Student Anxiety Detection Project
 
-This project aims to detect student anxiety levels using machine learning techniques.
+This project aims to detect student anxiety levels using machine learning techniques, helping identify patterns and contributing factors that may impact student well-being and academic performance.
 
-1. Introduction
+---
 
-Problem Statement: Student anxiety is a growing concern, impacting academic performance and overall well-being. This project seeks to develop a model that can effectively predict student anxiety levels based on key factors.
+## 📌 Introduction
 
-Methodology:
-Data Collection:
-Utilized a dataset containing information about students, including timestamp, age, and study hours.
-Modified the dataset to include anxiety-related factors such as Satisfaction with Life Scale (SWLS), Generalized Anxiety Disorder (GAD), and Social Phobia (SP).
+**Problem Statement:**  
+Student anxiety is a growing concern, affecting academic success and overall mental health. This project seeks to develop models that can predict student anxiety levels based on various influencing factors.
 
-Data Preprocessing:
-Cleaned and prepared the dataset for model training.
-Handled missing values and outliers.
+### 🧠 Methodology
 
-Model Development:
-Developed three separate Linear Regression models:
-Model 1: Predicted anxiety based on timestamp.
-Model 2: Predicted anxiety based on age.
-Model 3: Predicted anxiety based on study hours.
+#### 🔹 Data Collection
+- Utilized a dataset with features such as timestamp, age, and study hours.
+- Enhanced the dataset by integrating key psychological indicators:
+  - Satisfaction with Life Scale (SWLS)
+  - Generalized Anxiety Disorder (GAD)
+  - Social Phobia (SP)
 
-Model Evaluation:
-Evaluated the performance of each model using appropriate metrics (e.g., R-squared, Mean Squared Error).
-Visualized the model predictions and compared their performance.
+#### 🔹 Data Preprocessing
+- Cleaned and formatted the dataset for analysis.
+- Handled missing values and outliers.
 
-2. Project Structure
+#### 🔹 Model Development
+Built and evaluated three Linear Regression models:
+- **Model 1:** Predicts anxiety based on timestamp.
+- **Model 2:** Predicts anxiety based on age.
+- **Model 3:** Predicts anxiety based on study hours.
 
-data/: Contains the original and modified datasets (e.g., original_data.csv, modified_data.csv).
-src/: Contains the source code files:
-data_preprocessing.py: Handles data cleaning, transformation, and feature engineering.
-model_training.py: Trains and evaluates the three Linear Regression models.
-visualization.py: Creates visualizations for model predictions and comparisons.
-results/: Stores the model outputs, visualizations, and evaluation metrics.
+#### 🔹 Model Evaluation
+- Assessed models using metrics such as R-squared and Mean Squared Error (MSE).
+- Visualized predictions for comparative analysis.
 
-3.Results
-The project includes visualizations that compare the predictions of the three Linear Regression models.
-The results section provides insights into the factors that most significantly influence student anxiety levels based on the model predictions.
+---
 
-4.Future Work
-Explore more sophisticated machine learning models, such as Support Vector Regression or Random Forest.
-Incorporate additional features, such as academic performance, sleep quality, and social support.
-Develop a more robust and user-friendly interface for the anxiety detection system.
+
+---
+
+## 📊 Results
+
+- Included comparative visualizations of the three models' predictions.
+- Identified key features influencing student anxiety levels.
+- Provided interpretability and insight into which variables are most impactful.
+
+---
+
+## 🔮 Future Work
+
+- Experiment with more advanced models (e.g., Support Vector Regression, Random Forest).
+- Integrate additional features such as academic scores, sleep patterns, and social support systems.
+- Build an interactive, user-friendly dashboard or interface for broader accessibility.
+
+---
+
+## 🤝 Contributions
+
+Contributions are welcome! Feel free to fork the repo, raise issues, or submit pull requests.
+
+---
+
+## 📃 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 📬 Contact
+
+For questions or collaboration inquiries, please reach out via [GitHub Issues](https://github.com/ShehryarKhan123-ship-it/student-anxiety-detection/issues).
+
+
